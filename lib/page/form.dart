@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial_app/main.dart';
+import 'package:tutorial_app/page/to_do_page.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -10,7 +11,7 @@ class MyFormPage extends StatefulWidget {
 
 class _MyFormPageState extends State<MyFormPage> {
   final _formKey = GlobalKey<FormState>();
-  String _namaLengkap = "";
+  String _namaLengkap = '';
   bool jenjangSarjana = false;
   bool jenjangDiploma = false;
   bool jenjangMagister = false;
@@ -52,6 +53,16 @@ class _MyFormPageState extends State<MyFormPage> {
                 // );
               },
             ),
+            ListTile(
+              title: const Text('To Do'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ToDoPage()),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -67,8 +78,8 @@ class _MyFormPageState extends State<MyFormPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: "Contoh: Pak Dengklek",
-                      labelText: "Nama Lengkap",
+                      hintText: 'Contoh: Pak Dengklek',
+                      labelText: 'Nama Lengkap',
                       // Menambahkan icon agar lebih intuitif
                       icon: const Icon(Icons.people),
                       // Menambahkan circular border agar lebih rapi
@@ -108,7 +119,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     children: [
                       const ListTile(
                         leading: Icon(Icons.school),
-                        title: Text("Jenjang"),
+                        title: Text('Jenjang'),
                       ),
                       CheckboxListTile(
                         title: const Text('Sarjana'),
@@ -217,7 +228,7 @@ class _MyFormPageState extends State<MyFormPage> {
                 ),
                 TextButton(
                   child: const Text(
-                    "Simpan",
+                    'Simpan',
                     style: TextStyle(color: Colors.white),
                   ),
                   style: ButtonStyle(
@@ -248,14 +259,14 @@ class _MyFormPageState extends State<MyFormPage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "Nama: $_namaLengkap",
+                                          'Nama: $_namaLengkap',
                                           style: TextStyle(color: Colors.blue),
                                         ),
                                         const SizedBox(
                                           height: 10,
                                         ),
                                         Text(
-                                          "Umur: $umur",
+                                          'Umur: $umur',
                                           style: TextStyle(color: Colors.blue),
                                         ),
                                       ],
